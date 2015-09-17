@@ -19,39 +19,41 @@ public class MainActivity extends AppCompatActivity {
         final Button btnData = (Button) findViewById(R.id.btnGet);
         btnData.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String mcc = getSimData();
-                ((TextView)findViewById(R.id.simMCC)).setText(mcc);
+                getSimData();
             }
     });
     }
 
-    String getSimData() {
+    void getSimData() {
         TelephonyManager  telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
         int simState = telephonyManager.getSimState();
         String simOperatorCode = null; //, simCountry, simOperatorName, simSerial;
         switch (simState) {
 
-            case (TelephonyManager.SIM_STATE_ABSENT): break;
+            case (TelephonyManager.SIM_STATE_ABSENT): {
+                break;
+            }
             case (TelephonyManager.SIM_STATE_NETWORK_LOCKED): break;
             case (TelephonyManager.SIM_STATE_PIN_REQUIRED): break;
             case (TelephonyManager.SIM_STATE_PUK_REQUIRED): break;
             case (TelephonyManager.SIM_STATE_UNKNOWN): break;
             case (TelephonyManager.SIM_STATE_READY): {
 
-//                // Get the SIM country ISO code
-//                String simCountry = telephonyManager.getSimCountryIso();
+                // Get the SIM country ISO code
+                //((TextView)findViewById(R.id.simMCC)).setText(telephonyManager.getSimCountryIso());
 
                 // Get the operator code of the active SIM (MCC + MNC)
-                simOperatorCode = telephonyManager.getSimOperator();
+                ((TextView)findViewById(R.id.simMCC)).setText(telephonyManager.getSimOperator());
 
-//                // Get the name of the SIM operator
-//                String simOperatorName = telephonyManager.getSimOperatorName();
-//
-//                // Get the SIM’s serial number
-//                String simSerial = telephonyManager.getSimSerialNumber();
+                // Get the name of the SIM operator
+                ((TextView)findViewById(R.id.operatorName)).setText(telephonyManager.getSimOperatorName());
+
+                // Get the SIM’s serial number
+                ((TextView)findViewById(R.id.SerialNumber)).setText(telephonyManager.getSimSerialNumber());
+                // Get Line Number - doesn't work at all
+                //((TextView)findViewById(R.id.SerialNumber)).setText(telephonyManager.getLine1Number());
             }
         }
-        return simOperatorCode;
     }
 
     @Override
