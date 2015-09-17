@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SIMtest</string>
+
+    <string name="mcc">Hello world!</string>
+    <string name="labelMcc">SIM MCC:</string>
+    <string name="action_settings">Settings</string>
+</resources>
