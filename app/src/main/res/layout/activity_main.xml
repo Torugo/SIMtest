@@ -24,8 +24,81 @@
         android:layout_height="wrap_content"
         android:text="Get Data"
         android:id="@+id/btnGet"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginBottom="31dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/labelOpName"
+        android:id="@+id/labelOpName"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="34dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/operatorName"
+        android:layout_alignTop="@+id/labelOpName"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/labelSerialNumber"
+        android:id="@+id/labelSerialNumber"
+        android:layout_below="@+id/labelOpName"
+        android:layout_marginTop="30dp"
+        android:layout_alignRight="@+id/labelOpName"
+        android:layout_alignEnd="@+id/labelOpName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SerialNumber"
+        android:layout_alignTop="@+id/labelSerialNumber"
+        android:layout_toRightOf="@+id/labelSerialNumber"
+        android:layout_toEndOf="@+id/labelSerialNumber" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/labelIso"
+        android:id="@+id/labelIso"
+        android:layout_below="@+id/labelSerialNumber"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_marginTop="38dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/isoCode"
+        android:layout_alignTop="@+id/labelIso"
+        android:layout_toRightOf="@+id/labelSerialNumber"
+        android:layout_toEndOf="@+id/labelSerialNumber" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/labelIMSI"
+        android:id="@+id/labelIMSI"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+   <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/IMSICode"
+    android:layout_alignTop="@+id/labelIMSI"
+    android:layout_toRightOf="@+id/labelIMSI"
+    android:layout_toEndOf="@+id/labelIMSI" />
+
 
 </RelativeLayout>

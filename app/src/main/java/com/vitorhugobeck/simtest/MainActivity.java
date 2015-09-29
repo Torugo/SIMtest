@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         switch (simState) {
 
             case (TelephonyManager.SIM_STATE_ABSENT): {
+
                 break;
             }
             case (TelephonyManager.SIM_STATE_NETWORK_LOCKED): break;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             case (TelephonyManager.SIM_STATE_READY): {
 
                 // Get the SIM country ISO code
-                //((TextView)findViewById(R.id.simMCC)).setText(telephonyManager.getSimCountryIso());
+                ((TextView)findViewById(R.id.isoCode)).setText(telephonyManager.getSimCountryIso());
 
                 // Get the operator code of the active SIM (MCC + MNC)
                 ((TextView)findViewById(R.id.simMCC)).setText(telephonyManager.getSimOperator());
@@ -50,8 +51,10 @@ public class MainActivity extends AppCompatActivity {
 
                 // Get the SIM’s serial number
                 ((TextView)findViewById(R.id.SerialNumber)).setText(telephonyManager.getSimSerialNumber());
-                // Get Line Number - doesn't work at all
-                //((TextView)findViewById(R.id.SerialNumber)).setText(telephonyManager.getLine1Number());
+
+                //Get the SIM's IMSI
+                ((TextView)findViewById(R.id.IMSICode)).setText(telephonyManager.getSubscriberId());
+                break;
             }
         }
     }
