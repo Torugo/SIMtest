@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -76,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        if(id == R.id.test){
+            Toast.makeText(getApplicationContext(), "teste feito com sucesso", Toast.LENGTH_LONG).show();
         }
 
         return super.onOptionsItemSelected(item);
