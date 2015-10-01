@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         switch (simState) {
 
             case (TelephonyManager.SIM_STATE_ABSENT): {
-
+                Toast.makeText(getApplicationContext(), "NO SIM PRESENT", Toast.LENGTH_LONG).show();
                 break;
             }
             case (TelephonyManager.SIM_STATE_NETWORK_LOCKED): break;
