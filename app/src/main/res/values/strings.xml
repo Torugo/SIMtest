@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">SIMtest</string>
-    <string name="mcc"></string>
     <string name="labelMcc">SIM MCC:</string>
     <string name="labelOpName">Operator Name:</string>
     <string name="labelSerialNumber">SIM Serial Number:</string>

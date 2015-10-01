@@ -55,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
 
                 //Get the SIM's IMSI
                 ((TextView)findViewById(R.id.IMSICode)).setText(telephonyManager.getSubscriberId());
+
+
+                Toast.makeText(getApplicationContext(), "Data Collected", Toast.LENGTH_LONG).show();
                 break;
             }
         }
@@ -77,9 +80,6 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        }
-        if(id == R.id.test){
-            Toast.makeText(getApplicationContext(), "teste feito com sucesso", Toast.LENGTH_LONG).show();
         }
 
         return super.onOptionsItemSelected(item);
