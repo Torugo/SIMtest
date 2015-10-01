@@ -11,6 +11,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -56,7 +60,11 @@ public class MainActivity extends AppCompatActivity {
                 //Get the SIM's IMSI
                 ((TextView)findViewById(R.id.IMSICode)).setText(telephonyManager.getSubscriberId());
 
+                //Print the time to assure the data is recently collected
 
+                DateFormat df = new SimpleDateFormat("HH:mm:ss");
+                Calendar cal_hoje = Calendar.getInstance();
+                ((TextView)findViewById(R.id.time)).setText(df.format(cal_hoje.getTime()));
                 Toast.makeText(getApplicationContext(), "Data Collected", Toast.LENGTH_LONG).show();
                 break;
             }
