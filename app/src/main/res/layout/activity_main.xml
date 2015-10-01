@@ -90,15 +90,16 @@
         android:id="@+id/labelIMSI"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="42dp" />/>
 
    <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/IMSICode"
-    android:layout_alignTop="@+id/labelIMSI"
-    android:layout_toRightOf="@+id/labelIMSI"
-    android:layout_toEndOf="@+id/labelIMSI" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/IMSICode"
+        android:layout_alignTop="@+id/labelIMSI"
+        android:layout_toRightOf="@+id/labelIso"
+        android:layout_toEndOf="@+id/labelIso" />
 
 
 </RelativeLayout>
