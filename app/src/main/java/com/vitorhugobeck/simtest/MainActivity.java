@@ -1,6 +1,7 @@
 package com.vitorhugobeck.simtest;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
@@ -30,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void getSimData() {
+        String dbgMsg = "";
         TelephonyManager  telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+        int phoneCount=0;
         int simState = telephonyManager.getSimState();
         String simOperatorCode = null; //, simCountry, simOperatorName, simSerial;
         switch (simState) {
@@ -66,6 +69,12 @@ public class MainActivity extends AppCompatActivity {
                 Calendar cal_hoje = Calendar.getInstance();
                 ((TextView)findViewById(R.id.time)).setText(df.format(cal_hoje.getTime()));
                 Toast.makeText(getApplicationContext(), "Data Collected", Toast.LENGTH_LONG).show();
+
+                int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+                if (currentapiVersion >= Build.VERSION_CODES.LOLLIPOP_MR1){
+                    dbgMsg = String.valueOf(telephonyManager.getPhoneCount());
+                }
+                ((TextView)findViewById(R.id.debugMessages)).setText(dbgMsg);
                 break;
             }
         }
