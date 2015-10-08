@@ -1,14 +1,13 @@
 package com.vitorhugobeck.simtest;
 
 import android.Manifest;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
@@ -57,8 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     // app-defined int constant. The callback method gets the
                     // result of the request.
                 }
-            }
-            else {
+            } else {
                 super.onDestroy();
             }
 
@@ -73,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void getSimData() {
-
+        String dbgMsg = "";
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
             if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
@@ -94,11 +92,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.v("TestMain", "SubInfo: list is null");
             }
         } else {
-            String dbgMsg = "";
             TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-            int phoneCount = 0;
             int simState = telephonyManager.getSimState();
-            String simOperatorCode = null; //, simCountry, simOperatorName, simSerial;
             switch (simState) {
 
                 case (TelephonyManager.SIM_STATE_ABSENT): {
@@ -137,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
                     ((TextView) findViewById(R.id.time)).setText(df.format(cal_hoje.getTime()));
                     Toast.makeText(getApplicationContext(), "Data Collected", Toast.LENGTH_LONG).show();
 
-                    int currentapiVersion = android.os.Build.VERSION.SDK_INT;
                     ((TextView) findViewById(R.id.debugMessages)).setText(dbgMsg);
                     break;
                 }
